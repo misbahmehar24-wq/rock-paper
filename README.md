@@ -35,7 +35,7 @@ Create an empty repository on GitHub, then replace the URL below with its
 HTTPS URL and run these commands from the project folder:
 
 ```sh
-git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git
+git remote add origin https://github.com/misbahmehar24-wq/rock-paper
 git add .
 git commit -m "Prepare Rock Paper Scissors game"
 git push -u origin main
