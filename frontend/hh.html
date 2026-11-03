@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rock Paper Scissors Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            padding: 50px;
+        }
+        .game {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 450px;
+            margin: auto;
+            box-shadow: 0 4px 10px #ccc;
+        }
+        button {
+            padding: 12px 20px;
+            margin: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            background-color: #2878d0;
+            color: white;
+        }
+        button:hover {
+            background-color: #14569c;
+        }
+        #result {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="game">
+    <h1>ROCK PAPER SCISSORS</h1>
+    <h3>Choose your move:</h3>
+    <button onclick="playGame(1)">Rock</button>
+    <button onclick="playGame(2)">Paper</button>
+    <button onclick="playGame(3)">Scissors</button>
+    <h3 id="user"></h3>
+    <h3 id="computer"></h3>
+    <p id="result"></p>
+    <button onclick="resetGame()">Play Again</button>
+</div>
+<script>
+function choiceName(choice) {
+    switch(choice) {
+        case 1: return "Rock";
+        case 2: return "Paper";
+        case 3: return "Scissors";
+        default: return "Invalid";
+    }
+}
+function playGame(userChoice) {
+    let computerChoice = Math.floor(Math.random() * 3) + 1;
+    document.getElementById("user").innerHTML =
+        "You chose: " + choiceName(userChoice);
+    document.getElementById("computer").innerHTML =
+        "Computer chose: " + choiceName(computerChoice);
+    let result;
+    if (userChoice === computerChoice) {
+        result = "It's a Draw!";
+    }
+    else if (
+        (userChoice === 1 && computerChoice === 3) ||
+        (userChoice === 2 && computerChoice === 1) ||
+        (userChoice === 3 && computerChoice === 2)
+    ) {
+        result = "You Win!";
+    }
+    else {
+        result = "Computer Wins!";
+    }
+    document.getElementById("result").innerHTML = result;
+}
+function resetGame() {
+    document.getElementById("user").innerHTML = "";
+    document.getElementById("computer").innerHTML = "";
+    document.getElementById("result").innerHTML = "";
+}
+</script>
+</body>
+</html>
